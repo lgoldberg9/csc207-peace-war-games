@@ -1,10 +1,8 @@
 import java.util.Random;
 
-
 public class RandomPlayer implements Player {
 
 	private String name;
-	private Move currentMove;
 	
 	public RandomPlayer(String name) {
 		this.name = name;
@@ -17,13 +15,21 @@ public class RandomPlayer implements Player {
 
 	@Override
 	public String getDescription() {
-		return this.name + "chose " + Move.toString(this.currentMove);
+		return this.name + " chose ";
 	}
 
 	@Override
 	public Move takeTurn(int num, Random rand) {
 		
-		return null;
+		Move move;
+		int randomMove = rand.nextInt(2);
+		
+		if (randomMove == 0) {
+			move = Move.PEACE;
+		} else {
+			move = Move.WAR;
+		} 
+		return move;
 	}
 
 	@Override

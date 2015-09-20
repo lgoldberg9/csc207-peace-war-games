@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class HumanPlayer implements Player {
 
 	private String name;
-	private Move currentMove;
 	
 	public HumanPlayer(String name) {
 		this.name = name;
@@ -17,30 +16,37 @@ public class HumanPlayer implements Player {
 
 	@Override
 	public String getDescription() {
-		return this.name + "chose " + Move.toString(this.currentMove);
+		return this.name + " chose ";
 	}
 
 	@Override
 	public Move takeTurn(int num, Random rand) {
-		Scanner in = new Scanner(System.in);
+		
+		Scanner playerPipe = new Scanner(System.in);
+		
+		Move playerMove;
+		
 		while (true) {
-			System.out.println("Strategy? <peace|war>");
-			String move = in.nextLine();
+			System.out.print("Strategy? <peace|war> ");
+			String move = playerPipe.nextLine();
 			if (move.equals("peace")) {
-				in.close();
-				return Move.PEACE;
+				playerMove = Move.PEACE;
+				break;
 			} else if (move.equals("war")) {
-				in.close();
-				return Move.WAR;
+				playerMove = Move.WAR;
+				break;
 			} else {
 				continue;
 			}
 		}
+		
+		return playerMove;
 	}
 
 	@Override
 	public void recordOpponentMove(int num, Move move) {
-
+		System.out.println("4-20 Poopy butts blazing!");
+		return;
 	}
 	
 }
