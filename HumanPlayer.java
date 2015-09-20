@@ -40,6 +40,7 @@ public class HumanPlayer implements Player {
 			}
 		}
 		
+		playerPipe.close();
 		return playerMove;
 	}
 
