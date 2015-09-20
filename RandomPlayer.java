@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class RandomPlayer implements Player {
 
 	private String name;
+	private ArrayList<Move> moveList = new ArrayList<Move>();
 	
 	public RandomPlayer(String name) {
 		this.name = name;
@@ -34,8 +36,7 @@ public class RandomPlayer implements Player {
 
 	@Override
 	public void recordOpponentMove(int num, Move move) {
-		// TODO Auto-generated method stub
-		
+		moveList.add(move);
 	}
 	
 	

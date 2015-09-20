@@ -22,25 +22,34 @@ public class PeaceWarGame {
 			System.out.println("Player 1 score: " + getPlayer1Score());
 			System.out.println("Player 2 score: " + getPlayer2Score());
 			
-			String move1 = Move.toString(player1.takeTurn(turn, new Random()));
-			String move2 = Move.toString(player2.takeTurn(turn, new Random()));		
+			// Have each player take their turn
+			Move move1 = player1.takeTurn(turn, new Random());
+			Move move2 = player2.takeTurn(turn, new Random());
 			
-			System.out.println(player1.getDescription() + move1 + ".");
-			System.out.println(player2.getDescription() + move2 + ".");
+			// Process the moves made for printing
+			String move1Str = move1.toString();
+			String move2Str = move1.toString();		
+			
+			// Record the respective opponent's moves
+			player1.recordOpponentMove(0, move1);
+			player2.recordOpponentMove(0, move2);
+			
+			System.out.println(player1.getDescription() + move1Str + ".");
+			System.out.println(player2.getDescription() + move2Str + ".");
 		
-			if (move1.equals("peace") && move2.equals("peace")) {
+			if (move1Str.equals("peace") && move2Str.equals("peace")) {
 				System.out.println("Peace for everyone!");
 				this.player1Score += 3;
 				this.player2Score += 3;
-			} else if (move1.equals("war") && move2.equals("peace")) {
+			} else if (move1Str.equals("war") && move2Str.equals("peace")) {
 				System.out.println("Player 1 crushes player 2!");
 				this.player1Score += 5;
 				this.player2Score += 0;
-			} else if (move1.equals("peace") && move2.equals("war")) {
+			} else if (move1Str.equals("peace") && move2Str.equals("war")) {
 				System.out.println("Player 2 crushes player 1!");
 				this.player1Score += 0;
 				this.player2Score += 5;
-			} else if (move1.equals("war") && move2.equals("war")) {
+			} else if (move1Str.equals("war") && move2Str.equals("war")) {
 				System.out.println("Everyone to arms!");
 				this.player1Score += 1;
 				this.player2Score += 1;
