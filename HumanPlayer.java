@@ -4,12 +4,10 @@ import java.util.Scanner;
 public class HumanPlayer implements Player {
 
 	private String name;
-	private int score;
 	private Move currentMove;
 	
-	public HumanPlayer(String name, Move currentMove) {
+	public HumanPlayer(String name) {
 		this.name = name;
-		this.currentMove = currentMove;
 	}
 	
 	@Override
@@ -42,8 +40,7 @@ public class HumanPlayer implements Player {
 
 	@Override
 	public void recordOpponentMove(int num, Move move) {
-		// TODO Auto-generated method stub
-		
+
 	}
 	
 }

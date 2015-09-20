@@ -4,12 +4,10 @@ import java.util.Random;
 public class RandomPlayer implements Player {
 
 	private String name;
-	private int score;
 	private Move currentMove;
 	
-	public RandomPlayer(String name, Move currentMove) {
+	public RandomPlayer(String name) {
 		this.name = name;
-		this.currentMove = currentMove;
 	}
 	
 	@Override

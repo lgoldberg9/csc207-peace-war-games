@@ -8,12 +8,26 @@ public class PeaceWarGame {
 	 */
 	public static void main(String[] args) {
 		
-		
+		if (args.length != 2) {
+			System.out.println("Usage: PeaceWarGame <#/rounds> <ai|player>");
+			return;
+		}
 		
 		int rounds = Integer.parseInt(args[0]);
+				
+		if (args[1].equals("player")) {
+			HumanPlayer player1 = new HumanPlayer("Player 1");
+		} else if (args[1].equals("ai")) {
+			RandomPlayer player1 = new RandomPlayer("Player 2");
+		} else {
+			System.out.println("Usage: PeaceWarGame <#/rounds> <ai|player>");
+			return;
+		}
+		RandomPlayer player2 = new RandomPlayer("Player 2");
+				
+		System.out.println();
 		
-		Random random = new Random();
-		System.out.println(random.nextInt(2));
+		
 	}
 	
 	public PeaceWarGame(Player player1, Player player2, int numRounds) {
